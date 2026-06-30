@@ -1,0 +1,99 @@
+{
+  "generated_by": "scripts/compute_area_stats.py",
+  "year": "2020",
+  "description": "Index of per-file ESA WorldCover 10m stats outputs for 2020",
+  "output_directory": "e:\\project（1）\\data\\district_stats",
+  "file_count": 10,
+  "files": [
+    {
+      "source_file": "01_Furong_ESA_WC10m_2020_final.tif",
+      "district": "Furong",
+      "output_file": "01_Furong_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\01_Furong_ESA_WC10m_2020_final.json",
+      "valid_pixels": 506406,
+      "nodata_pixels": 333771,
+      "class_count": 8
+    },
+    {
+      "source_file": "02_Tianxin_ESA_WC10m_2020_final.tif",
+      "district": "Tianxin",
+      "output_file": "02_Tianxin_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\02_Tianxin_ESA_WC10m_2020_final.json",
+      "valid_pixels": 1577512,
+      "nodata_pixels": 1662042,
+      "class_count": 8
+    },
+    {
+      "source_file": "03_Yuelu_ESA_WC10m_2020_final.tif",
+      "district": "Yuelu",
+      "output_file": "03_Yuelu_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\03_Yuelu_ESA_WC10m_2020_final.json",
+      "valid_pixels": 6207024,
+      "nodata_pixels": 7334812,
+      "class_count": 8
+    },
+    {
+      "source_file": "04_Kaifu_ESA_WC10m_2020_final.tif",
+      "district": "Kaifu",
+      "output_file": "04_Kaifu_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\04_Kaifu_ESA_WC10m_2020_final.json",
+      "valid_pixels": 2167210,
+      "nodata_pixels": 2069000,
+      "class_count": 8
+    },
+    {
+      "source_file": "05_Yuhua_ESA_WC10m_2020_final.tif",
+      "district": "Yuhua",
+      "output_file": "05_Yuhua_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\05_Yuhua_ESA_WC10m_2020_final.json",
+      "valid_pixels": 3309821,
+      "nodata_pixels": 3653851,
+      "class_count": 8
+    },
+    {
+      "source_file": "06_Wangcheng_ESA_WC10m_2020_final.tif",
+      "district": "Wangcheng",
+      "output_file": "06_Wangcheng_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\06_Wangcheng_ESA_WC10m_2020_final.json",
+      "valid_pixels": 10861941,
+      "nodata_pixels": 9978907,
+      "class_count": 8
+    },
+    {
+      "source_file": "07_ChangshaCounty_ESA_WC10m_2020_final.tif",
+      "district": "ChangshaCounty",
+      "output_file": "07_ChangshaCounty_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\07_ChangshaCounty_ESA_WC10m_2020_final.json",
+      "valid_pixels": 20047809,
+      "nodata_pixels": 21304749,
+      "class_count": 8
+    },
+    {
+      "source_file": "08_Liuyang_ESA_WC10m_2020_final.tif",
+      "district": "Liuyang",
+      "output_file": "08_Liuyang_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\08_Liuyang_ESA_WC10m_2020_final.json",
+      "valid_pixels": 56951212,
+      "nodata_pixels": 39351428,
+      "class_count": 8
+    },
+    {
+      "source_file": "09_Ningxiang_ESA_WC10m_2020_final.tif",
+      "district": "Ningxiang",
+      "output_file": "09_Ningxiang_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\09_Ningxiang_ESA_WC10m_2020_final.json",
+      "valid_pixels": 33137017,
+      "nodata_pixels": 33828173,
+      "class_count": 8
+    },
+    {
+      "source_file": "Changsha_Districts_ESA_WC10m_2020_final.tif",
+      "district": "Changsha_Districts",
+      "output_file": "Changsha_Districts_ESA_WC10m_2020_final.json",
+      "output_path": "e:\\project（1）\\data\\district_stats\\Changsha_Districts_ESA_WC10m_2020_final.json",
+      "valid_pixels": 134705194,
+      "nodata_pixels": 103738445,
+      "class_count": 8
+    }
+  ]
+}

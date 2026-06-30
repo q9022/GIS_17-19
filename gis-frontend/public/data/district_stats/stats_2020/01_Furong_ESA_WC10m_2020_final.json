@@ -1,0 +1,80 @@
+{
+  "generated_by": "scripts/compute_area_stats.py",
+  "year": "2020",
+  "district": "Furong",
+  "description": "ESA WorldCover 10m stats for 01_Furong_ESA_WC10m_2020_final.tif (NoData=0 filtered)",
+  "unit_area": "m^2",
+  "class_codes": {
+    "10": "Tree",
+    "20": "Shrubland",
+    "30": "Grassland",
+    "40": "Cropland",
+    "50": "Built-up",
+    "60": "Bare / sparse vegetation",
+    "70": "Snow and ice",
+    "80": "Permanent water bodies",
+    "90": "Herbaceous wetland",
+    "95": "Mangroves",
+    "100": "Moss and lichen"
+  },
+  "stats": {
+    "district": "Furong",
+    "source_file": "01_Furong_ESA_WC10m_2020_final.tif",
+    "pixel_resolution_deg": 8.983152841195215e-05,
+    "center_lat_deg": 28.198072,
+    "pixel_area_m2": 100.0,
+    "total_pixels": 840177,
+    "valid_pixels": 506406,
+    "nodata_pixels": 333771,
+    "classes": {
+      "10": {
+        "class_code": 10,
+        "class_name": "Tree",
+        "pixel_count": 55003,
+        "area_m2": 5500300.0
+      },
+      "20": {
+        "class_code": 20,
+        "class_name": "Shrubland",
+        "pixel_count": 425,
+        "area_m2": 42500.0
+      },
+      "30": {
+        "class_code": 30,
+        "class_name": "Grassland",
+        "pixel_count": 4594,
+        "area_m2": 459400.0
+      },
+      "40": {
+        "class_code": 40,
+        "class_name": "Cropland",
+        "pixel_count": 57524,
+        "area_m2": 5752400.0
+      },
+      "50": {
+        "class_code": 50,
+        "class_name": "Built-up",
+        "pixel_count": 319361,
+        "area_m2": 31936100.0
+      },
+      "60": {
+        "class_code": 60,
+        "class_name": "Bare / sparse vegetation",
+        "pixel_count": 50214,
+        "area_m2": 5021400.0
+      },
+      "80": {
+        "class_code": 80,
+        "class_name": "Permanent water bodies",
+        "pixel_count": 19201,
+        "area_m2": 1920100.0
+      },
+      "90": {
+        "class_code": 90,
+        "class_name": "Herbaceous wetland",
+        "pixel_count": 84,
+        "area_m2": 8400.0
+      }
+    }
+  }
+}

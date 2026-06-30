@@ -1,0 +1,80 @@
+{
+  "generated_by": "scripts/compute_area_stats.py",
+  "year": "2021",
+  "district": "Ningxiang",
+  "description": "ESA WorldCover 10m stats for 09_Ningxiang_ESA_WC10m_2021_final.tif (NoData=0 filtered)",
+  "unit_area": "m^2",
+  "class_codes": {
+    "10": "Tree",
+    "20": "Shrubland",
+    "30": "Grassland",
+    "40": "Cropland",
+    "50": "Built-up",
+    "60": "Bare / sparse vegetation",
+    "70": "Snow and ice",
+    "80": "Permanent water bodies",
+    "90": "Herbaceous wetland",
+    "95": "Mangroves",
+    "100": "Moss and lichen"
+  },
+  "stats": {
+    "district": "Ningxiang",
+    "source_file": "09_Ningxiang_ESA_WC10m_2021_final.tif",
+    "pixel_resolution_deg": 8.983152841195215e-05,
+    "center_lat_deg": 28.183789,
+    "pixel_area_m2": 100.0,
+    "total_pixels": 66965190,
+    "valid_pixels": 33137017,
+    "nodata_pixels": 33828173,
+    "classes": {
+      "10": {
+        "class_code": 10,
+        "class_name": "Tree",
+        "pixel_count": 20711328,
+        "area_m2": 2071132800.06
+      },
+      "20": {
+        "class_code": 20,
+        "class_name": "Shrubland",
+        "pixel_count": 26,
+        "area_m2": 2600.0
+      },
+      "30": {
+        "class_code": 30,
+        "class_name": "Grassland",
+        "pixel_count": 1149102,
+        "area_m2": 114910200.0
+      },
+      "40": {
+        "class_code": 40,
+        "class_name": "Cropland",
+        "pixel_count": 8595550,
+        "area_m2": 859555000.02
+      },
+      "50": {
+        "class_code": 50,
+        "class_name": "Built-up",
+        "pixel_count": 1921946,
+        "area_m2": 192194600.01
+      },
+      "60": {
+        "class_code": 60,
+        "class_name": "Bare / sparse vegetation",
+        "pixel_count": 399658,
+        "area_m2": 39965800.0
+      },
+      "80": {
+        "class_code": 80,
+        "class_name": "Permanent water bodies",
+        "pixel_count": 359372,
+        "area_m2": 35937200.0
+      },
+      "90": {
+        "class_code": 90,
+        "class_name": "Herbaceous wetland",
+        "pixel_count": 35,
+        "area_m2": 3500.0
+      }
+    }
+  }
+}

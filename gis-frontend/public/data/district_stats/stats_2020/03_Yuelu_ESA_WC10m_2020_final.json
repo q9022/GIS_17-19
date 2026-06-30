@@ -1,0 +1,80 @@
+{
+  "generated_by": "scripts/compute_area_stats.py",
+  "year": "2020",
+  "district": "Yuelu",
+  "description": "ESA WorldCover 10m stats for 03_Yuelu_ESA_WC10m_2020_final.tif (NoData=0 filtered)",
+  "unit_area": "m^2",
+  "class_codes": {
+    "10": "Tree",
+    "20": "Shrubland",
+    "30": "Grassland",
+    "40": "Cropland",
+    "50": "Built-up",
+    "60": "Bare / sparse vegetation",
+    "70": "Snow and ice",
+    "80": "Permanent water bodies",
+    "90": "Herbaceous wetland",
+    "95": "Mangroves",
+    "100": "Moss and lichen"
+  },
+  "stats": {
+    "district": "Yuelu",
+    "source_file": "03_Yuelu_ESA_WC10m_2020_final.tif",
+    "pixel_resolution_deg": 8.983152841195215e-05,
+    "center_lat_deg": 28.123197,
+    "pixel_area_m2": 100.0,
+    "total_pixels": 13541836,
+    "valid_pixels": 6207024,
+    "nodata_pixels": 7334812,
+    "classes": {
+      "10": {
+        "class_code": 10,
+        "class_name": "Tree",
+        "pixel_count": 3000939,
+        "area_m2": 300093900.01
+      },
+      "20": {
+        "class_code": 20,
+        "class_name": "Shrubland",
+        "pixel_count": 3755,
+        "area_m2": 375500.0
+      },
+      "30": {
+        "class_code": 30,
+        "class_name": "Grassland",
+        "pixel_count": 44589,
+        "area_m2": 4458900.0
+      },
+      "40": {
+        "class_code": 40,
+        "class_name": "Cropland",
+        "pixel_count": 1000047,
+        "area_m2": 100004700.0
+      },
+      "50": {
+        "class_code": 50,
+        "class_name": "Built-up",
+        "pixel_count": 1065211,
+        "area_m2": 106521100.0
+      },
+      "60": {
+        "class_code": 60,
+        "class_name": "Bare / sparse vegetation",
+        "pixel_count": 688822,
+        "area_m2": 68882200.0
+      },
+      "80": {
+        "class_code": 80,
+        "class_name": "Permanent water bodies",
+        "pixel_count": 397647,
+        "area_m2": 39764700.0
+      },
+      "90": {
+        "class_code": 90,
+        "class_name": "Herbaceous wetland",
+        "pixel_count": 6014,
+        "area_m2": 601400.0
+      }
+    }
+  }
+}

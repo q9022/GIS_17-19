@@ -614,8 +614,8 @@ async function fetchDistrictBounds(districtId) {
     try {
       const fileName = getBoundaryFileName(districtId)
       const filePath = districtId === 0 
-        ? `/data/boundary/${fileName}`
-        : `/data/boundary/split_districts/${fileName}`
+        ? `${import.meta.env.BASE_URL}data/boundary/${fileName}`
+        : `${import.meta.env.BASE_URL}data/boundary/split_districts/${fileName}`
       console.log(`📍 回退加载本地边界文件: ${filePath}`)
       
       const response = await fetch(filePath)
@@ -650,7 +650,7 @@ function fitDistrictBounds(geojson) {
 
 function buildCOGPath(year, districtId) {
   const fileName = getCOGFileName(districtId, year)
-  return `/data/district_cogs/${year}_cog/${fileName}`
+  return `${import.meta.env.BASE_URL}data/district_cogs/${year}_cog/${fileName}`
 }
 
 async function loadCOGLayer(year = 2021, districtId = 0) {

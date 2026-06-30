@@ -1,0 +1,74 @@
+{
+  "generated_by": "scripts/compute_area_stats.py",
+  "year": "2021",
+  "district": "Tianxin",
+  "description": "ESA WorldCover 10m stats for 02_Tianxin_ESA_WC10m_2021_final.tif (NoData=0 filtered)",
+  "unit_area": "m^2",
+  "class_codes": {
+    "10": "Tree",
+    "20": "Shrubland",
+    "30": "Grassland",
+    "40": "Cropland",
+    "50": "Built-up",
+    "60": "Bare / sparse vegetation",
+    "70": "Snow and ice",
+    "80": "Permanent water bodies",
+    "90": "Herbaceous wetland",
+    "95": "Mangroves",
+    "100": "Moss and lichen"
+  },
+  "stats": {
+    "district": "Tianxin",
+    "source_file": "02_Tianxin_ESA_WC10m_2021_final.tif",
+    "pixel_resolution_deg": 8.983152841195215e-05,
+    "center_lat_deg": 28.080393,
+    "pixel_area_m2": 100.0,
+    "total_pixels": 3239554,
+    "valid_pixels": 1577512,
+    "nodata_pixels": 1662042,
+    "classes": {
+      "10": {
+        "class_code": 10,
+        "class_name": "Tree",
+        "pixel_count": 538796,
+        "area_m2": 53879600.0
+      },
+      "20": {
+        "class_code": 20,
+        "class_name": "Shrubland",
+        "pixel_count": 3,
+        "area_m2": 300.0
+      },
+      "30": {
+        "class_code": 30,
+        "class_name": "Grassland",
+        "pixel_count": 81304,
+        "area_m2": 8130400.0
+      },
+      "40": {
+        "class_code": 40,
+        "class_name": "Cropland",
+        "pixel_count": 191693,
+        "area_m2": 19169300.0
+      },
+      "50": {
+        "class_code": 50,
+        "class_name": "Built-up",
+        "pixel_count": 644481,
+        "area_m2": 64448100.0
+      },
+      "60": {
+        "class_code": 60,
+        "class_name": "Bare / sparse vegetation",
+        "pixel_count": 60182,
+        "area_m2": 6018200.0
+      },
+      "80": {
+        "class_code": 80,
+        "class_name": "Permanent water bodies",
+        "pixel_count": 61053,
+        "area_m2": 6105300.0
+      }
+    }
+  }
+}
