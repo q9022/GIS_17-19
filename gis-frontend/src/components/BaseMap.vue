@@ -437,153 +437,94 @@ async function handleMapClick(e) {
     return
   }
 
+  let pixelValue = 0
+  
   try {
     console.log('📡 正在调用queryPoint API...')
     const result = await queryPoint(lat, lng, currentYear.value, props.districtId)
     console.log('✅ queryPoint API返回:', result)
     
-    let popupContent = ''
-    
-    if (!result || result.pixel_value === 0 || result.pixel_value === undefined) {
-      popupContent = `
-        <div class="popup-wrapper" style="border-left: 4px solid #cccccc">
-          <div class="popup-header">
-            <span class="popup-title">地表覆盖查询结果</span>
-          </div>
-          <div class="popup-body">
-            <div class="popup-message">该位置无地表覆盖数据</div>
-            <div class="popup-coords">坐标: ${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
-          </div>
-        </div>
-      `
-    } else if (COLOR_MAP[result.pixel_value]) {
-      const category = COLOR_MAP[result.pixel_value]
-      popupContent = `
-        <div class="popup-wrapper" style="border-left: 4px solid ${category.color}">
-          <div class="popup-header">
-            <span class="popup-title">地表覆盖查询结果</span>
-          </div>
-          <div class="popup-body">
-            <div class="popup-category">
-              <span class="popup-color" style="background-color: ${category.color}"></span>
-              <span class="popup-name">${category.name}</span>
-            </div>
-            <div class="popup-info">
-              <span class="popup-label">像素值:</span>
-              <span class="popup-value">${result.pixel_value}</span>
-            </div>
-            <div class="popup-info">
-              <span class="popup-label">坐标:</span>
-              <span class="popup-value">${lat.toFixed(6)}, ${lng.toFixed(6)}</span>
-            </div>
-          </div>
-        </div>
-      `
-    } else {
-      popupContent = `
-        <div class="popup-wrapper" style="border-left: 4px solid #9ca3af">
-          <div class="popup-header">
-            <span class="popup-title">地表覆盖查询结果</span>
-          </div>
-          <div class="popup-body">
-            <div class="popup-message">未知类别 (像素值: ${result.pixel_value})</div>
-            <div class="popup-coords">坐标: ${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
-          </div>
-        </div>
-      `
+    if (result && result.pixel_value !== undefined && result.pixel_value !== 0) {
+      pixelValue = result.pixel_value
     }
-
-    L.popup({
-      maxWidth: 280,
-      className: 'custom-popup',
-      closeButton: true
-    })
-    .setLatLng(e.latlng)
-    .setContent(popupContent)
-    .openOn(map)
-    
   } catch (error) {
-    console.error('❌ queryPoint API调用失败:', error)
-    
-    if (!originalPixelValues) {
-      console.log('⚠️ 原始数据未加载，无法进行本地查询')
-      return
-    }
-    
+    console.warn('⚠️ API查询失败:', error.message)
+  }
+  
+  if (pixelValue === 0 && originalPixelValues) {
+    console.log('📍 使用本地像素数据查询...')
     const col = Math.floor((lng - geoOriginX) / geoPixelWidth)
     const row = Math.floor((geoOriginY - lat) / geoPixelHeight)
     
-    if (col < 0 || col >= imageWidth || row < 0 || row >= imageHeight) {
-      console.log('📍 像素坐标超出范围:', col, row)
-      return
+    if (col >= 0 && col < imageWidth && row >= 0 && row < imageHeight) {
+      const pixelIndex = row * imageWidth + col
+      const localValue = originalPixelValues[pixelIndex]
+      if (localValue && localValue !== 0 && !isNaN(localValue)) {
+        pixelValue = Math.round(localValue)
+        console.log('📍 本地查询成功，像素值:', pixelValue)
+      }
     }
-    
-    const pixelIndex = row * imageWidth + col
-    const pixelValue = originalPixelValues[pixelIndex]
-    const intValue = Math.round(pixelValue)
-    
-    console.log('📍 本地查询结果:', { lat, lng, col, row, pixelValue: intValue })
-    
-    let popupContent = ''
-    
-    if (pixelValue === 0 || pixelValue === undefined || pixelValue === null || isNaN(pixelValue)) {
-      popupContent = `
-        <div class="popup-wrapper" style="border-left: 4px solid #cccccc">
-          <div class="popup-header">
-            <span class="popup-title">地表覆盖查询结果</span>
-          </div>
-          <div class="popup-body">
-            <div class="popup-message">该位置无地表覆盖数据</div>
-            <div class="popup-coords">坐标: ${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
-          </div>
-        </div>
-      `
-    } else if (COLOR_MAP[intValue]) {
-      const category = COLOR_MAP[intValue]
-      popupContent = `
-        <div class="popup-wrapper" style="border-left: 4px solid ${category.color}">
-          <div class="popup-header">
-            <span class="popup-title">地表覆盖查询结果</span>
-          </div>
-          <div class="popup-body">
-            <div class="popup-category">
-              <span class="popup-color" style="background-color: ${category.color}"></span>
-              <span class="popup-name">${category.name}</span>
-            </div>
-            <div class="popup-info">
-              <span class="popup-label">像素值:</span>
-              <span class="popup-value">${intValue}</span>
-            </div>
-            <div class="popup-info">
-              <span class="popup-label">坐标:</span>
-              <span class="popup-value">${lat.toFixed(6)}, ${lng.toFixed(6)}</span>
-            </div>
-          </div>
-        </div>
-      `
-    } else {
-      popupContent = `
-        <div class="popup-wrapper" style="border-left: 4px solid #9ca3af">
-          <div class="popup-header">
-            <span class="popup-title">地表覆盖查询结果</span>
-          </div>
-          <div class="popup-body">
-            <div class="popup-message">未知类别 (像素值: ${intValue})</div>
-            <div class="popup-coords">坐标: ${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
-          </div>
-        </div>
-      `
-    }
-    
-    L.popup({
-      maxWidth: 280,
-      className: 'custom-popup',
-      closeButton: true
-    })
-    .setLatLng(e.latlng)
-    .setContent(popupContent)
-    .openOn(map)
   }
+  
+  let popupContent = ''
+  
+  if (pixelValue === 0 || pixelValue === undefined || isNaN(pixelValue)) {
+    popupContent = `
+      <div class="popup-wrapper" style="border-left: 4px solid #cccccc">
+        <div class="popup-header">
+          <span class="popup-title">地表覆盖查询结果</span>
+        </div>
+        <div class="popup-body">
+          <div class="popup-message">该位置无地表覆盖数据</div>
+          <div class="popup-coords">坐标: ${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
+        </div>
+      </div>
+    `
+  } else if (COLOR_MAP[pixelValue]) {
+    const category = COLOR_MAP[pixelValue]
+    popupContent = `
+      <div class="popup-wrapper" style="border-left: 4px solid ${category.color}">
+        <div class="popup-header">
+          <span class="popup-title">地表覆盖查询结果</span>
+        </div>
+        <div class="popup-body">
+          <div class="popup-category">
+            <span class="popup-color" style="background-color: ${category.color}"></span>
+            <span class="popup-name">${category.name}</span>
+          </div>
+          <div class="popup-info">
+            <span class="popup-label">像素值:</span>
+            <span class="popup-value">${pixelValue}</span>
+          </div>
+          <div class="popup-info">
+            <span class="popup-label">坐标:</span>
+            <span class="popup-value">${lat.toFixed(6)}, ${lng.toFixed(6)}</span>
+          </div>
+        </div>
+      </div>
+    `
+  } else {
+    popupContent = `
+      <div class="popup-wrapper" style="border-left: 4px solid #9ca3af">
+        <div class="popup-header">
+          <span class="popup-title">地表覆盖查询结果</span>
+        </div>
+        <div class="popup-body">
+          <div class="popup-message">未知类别 (像素值: ${pixelValue})</div>
+          <div class="popup-coords">坐标: ${lat.toFixed(6)}, ${lng.toFixed(6)}</div>
+        </div>
+      </div>
+    `
+  }
+
+  L.popup({
+    maxWidth: 280,
+    className: 'custom-popup',
+    closeButton: true
+  })
+  .setLatLng(e.latlng)
+  .setContent(popupContent)
+  .openOn(map)
 }
 
 function handleMouseMove(e) {
